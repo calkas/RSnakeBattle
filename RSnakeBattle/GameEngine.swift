@@ -10,20 +10,18 @@ import SwiftUI
 struct GameEngine: View {
     
     @ObservedObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
-    
     @ObservedObject var board = BoardModel()
     @ObservedObject var fruit = FruitModel(workingCoords: CGPoint(x: CGFloat(SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment), y: CGFloat(SystemSettings.shared.maxScreenY - GameSettings.shared.yAdjustment)))
     
-    @State var snakeMove: SnakeMove = .up
-    @State var gameOver = false
-    
-    let gameTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
-
+    @State private var snakeMove: SnakeMove = .up
+    @State private var isGameStarted = false
+    @State private var gameTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+    @State var isGameOver = false
 
     var body: some View {
         VStack {
             ZStack {
-                if gameOver {
+                if isGameOver {
                     VStack {
                         Text("GAME OVER")
                     }
@@ -35,17 +33,21 @@ struct GameEngine: View {
                 }
             }
 
-        }.gesture(DragGesture(minimumDistance: CGFloat(0)).onEnded({ g in
+        }.gesture(DragGesture(minimumDistance: CGFloat(0)).onEnded({ g in 
+            if !isGameStarted {
+                startGameTimer()
+                isGameStarted = true
+            }
             determineSnakeDirection(clickScreenPoint: g.location)
         })).onReceive(gameTimer, perform: { _ in
             
-            if !gameOver {
+            if !isGameOver {
                 snake.move(move: snakeMove)
-                if(board.isCollision(point: snake.headPosition) || snake.isCollisionDetected) {
-                    gameOver = true
+                if board.isCollision(point: snake.headPosition) || snake.isCollisionDetected {
+                    isGameOver = true
                 }
                 
-                else if(fruit.wasEaten(objPoint: snake.headPosition, objWidth: snake.width, objHeight: snake.heigh)) {
+                else if fruit.wasEaten(objPoint: snake.headPosition, objWidth: snake.width, objHeight: snake.heigh) {
                     snake.addBodyElement()
                     fruit.create()
                 }
@@ -53,10 +55,10 @@ struct GameEngine: View {
                     // Do Nothing
                 }
             }
-            else {
-                
-            }
-        })
+            
+        }).onAppear() {
+            stopGameTimer()
+        }
     }
     
     
@@ -65,27 +67,29 @@ struct GameEngine: View {
         let dXFromObjToClick = abs(clickScreenPoint.x - snake.headPosition.x)
         let dYFromObjToClick = abs(clickScreenPoint.y - snake.headPosition.y)
         
-        if(clickScreenPoint.x > snake.headPosition.x  && dXFromObjToClick > dYFromObjToClick)
-        {
+        if clickScreenPoint.x > snake.headPosition.x && dXFromObjToClick > dYFromObjToClick {
             snakeMove = .right
         }
-        else if(clickScreenPoint.x < snake.headPosition.x && dXFromObjToClick > dYFromObjToClick)
-        {
+        else if clickScreenPoint.x < snake.headPosition.x && dXFromObjToClick > dYFromObjToClick {
             snakeMove = .left
         }
-        
-        else if(clickScreenPoint.y > snake.headPosition.y && dYFromObjToClick > dXFromObjToClick)
-        {
+        else if clickScreenPoint.y > snake.headPosition.y && dYFromObjToClick > dXFromObjToClick {
             snakeMove = .down
         }
-        else if(clickScreenPoint.y < snake.headPosition.y && dYFromObjToClick > dXFromObjToClick)
-        {
+        else if clickScreenPoint.y < snake.headPosition.y && dYFromObjToClick > dXFromObjToClick {
             snakeMove = .up
         }
-        else
-        {
+        else {
             //Do Nothing
         }
+    }
+
+    private func stopGameTimer() {
+        gameTimer.upstream.connect().cancel()
+    }
+
+    private func startGameTimer() {
+        gameTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
     }
 }
 

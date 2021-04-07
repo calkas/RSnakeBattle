@@ -52,9 +52,6 @@ struct SnakeModelView: View {
     }
     
 }
-    
-   
-
 
 struct SnakeModelView_Previews: PreviewProvider {
     static var previews: some View {
