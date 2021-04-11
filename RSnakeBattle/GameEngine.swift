@@ -10,31 +10,38 @@ import SwiftUI
 struct GameEngine: View {
     
     @ObservedObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
-    @ObservedObject var board = BoardModel()
+    let board = BoardModel()
     @ObservedObject var fruit = FruitModel(workingCoords: CGPoint(x: CGFloat(SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment), y: CGFloat(SystemSettings.shared.maxScreenY - GameSettings.shared.yAdjustment)))
+    
+    @ObservedObject var scoreBoard = ScoreBoardModel()
     
     @State private var snakeMove: SnakeMove = .up
     @State private var isGameStarted = false
     @State private var gameTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
     @State var isGameOver = false
-
+    
     var body: some View {
         VStack {
             ZStack {
                 if isGameOver {
                     VStack {
-                        Text("GAME OVER")
+                        GameOverView(score: scoreBoard.score, action: { self.resetGame() })
                     }
                 }
                 else {
+                    
                     BoardModelView(board: board)
                     SnakeModelView(snake: snake)
                     FruitModelView(fruit: fruit)
+                    Text("Score: \(scoreBoard.score)")
+                        .font(.system(size: 20, weight: .black, design: .rounded))
+                        .foregroundColor(.pink).position(x:SystemSettings.shared.maxScreenX - 75, y: SystemSettings.shared.minScreenY + 5)
                 }
             }
 
-        }.gesture(DragGesture(minimumDistance: CGFloat(0)).onEnded({ g in 
+        }.gesture(DragGesture(minimumDistance: CGFloat(0)).onEnded({ g in
             if !isGameStarted {
+                scoreBoard.reset()
                 startGameTimer()
                 isGameStarted = true
             }
@@ -48,6 +55,7 @@ struct GameEngine: View {
                 }
                 
                 else if fruit.wasEaten(objPoint: snake.headPosition, objWidth: snake.width, objHeight: snake.heigh) {
+                    scoreBoard.update()
                     snake.addBodyElement()
                     fruit.create()
                 }
@@ -90,6 +98,13 @@ struct GameEngine: View {
 
     private func startGameTimer() {
         gameTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+    }
+    
+    func resetGame() {
+        snake.reset(startSnakePosition: GameSettings.shared.snakeStartingPoint)
+        isGameOver.toggle()
+        stopGameTimer()
+        isGameStarted.toggle()
     }
 }
 

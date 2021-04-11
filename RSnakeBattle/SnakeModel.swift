@@ -88,6 +88,11 @@ class SnakeModel : ObservableObject {
         return false
     }
     
+    func reset(startSnakePosition: CGPoint) {
+        body.removeAll()
+        createSnake(position: startSnakePosition)
+    }
+    
 }
 
 

@@ -9,8 +9,7 @@ import Foundation
 import SwiftUI
 
 
-
-class BoardModel: ObservableObject {
+class BoardModel {
     
     let width = SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment
     let height = SystemSettings.shared.maxScreenY - GameSettings.shared.yAdjustment

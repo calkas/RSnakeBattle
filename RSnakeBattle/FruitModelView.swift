@@ -11,7 +11,7 @@ struct FruitModelView: View {
     @ObservedObject var fruit: FruitModel
     var body: some View {
         ZStack {
-            Image("fruit_pear").resizable().frame(width: fruit.width, height: fruit.heigh).position(fruit.coordinates)
+            Image("apple_fruit").resizable().frame(width: fruit.width, height: fruit.heigh).position(fruit.coordinates).shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         }
     }
 }

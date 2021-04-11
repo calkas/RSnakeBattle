@@ -33,14 +33,14 @@ struct SnakeModelView: View {
         return Rectangle()
             .frame(width: snake.width, height: snake.heigh)
             .position(snake.body[0].position)
-            .foregroundColor(Color.blue)
+            .foregroundColor(Color.gray).shadow(radius: 10)
     }
     
     private func drawBody(index: Int) -> some View {
         return Rectangle()
             .frame(width: snake.width, height: snake.heigh)
             .position(snake.body[index].position)
-            .foregroundColor(Color.pink)
+            .foregroundColor(Color.pink).shadow(radius: 10)
     }
     
     private func drawTail() -> some View {
@@ -48,7 +48,7 @@ struct SnakeModelView: View {
         return Rectangle()
             .frame(width: snake.width, height: snake.heigh)
             .position(snake.body[snake.body.count - 1].position)
-            .foregroundColor(Color.black)
+            .foregroundColor(Color.pink).shadow(radius: 10)
     }
     
 }

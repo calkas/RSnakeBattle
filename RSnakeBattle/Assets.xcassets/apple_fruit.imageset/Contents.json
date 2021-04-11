@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "fruit_pear.png",
+      "filename" : "apple_fruit.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "fruit_pear@2x.png",
+      "filename" : "apple_fruit@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "fruit_pear@3x.png",
+      "filename" : "apple_fruit@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

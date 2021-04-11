@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoardModelView: View {
     
-    @ObservedObject var board: BoardModel
+    let board: BoardModel
     var body: some View {
         ZStack {
             Image("board").resizable()
