@@ -15,7 +15,6 @@ class ScoreBoardModel: ObservableObject {
     
     @State var multiple: Int = 10
     
-    
     func update() {
         score += 10 * multiple
     }

@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct SnakeModelView: View {
     
     @ObservedObject var snake: SnakeModel
@@ -21,7 +20,6 @@ struct SnakeModelView: View {
                 else if index == snake.length - 1 {
                     drawTail()
                 }
-                
                 else {
                     drawBody(index: index)
                 }
@@ -44,13 +42,11 @@ struct SnakeModelView: View {
     }
     
     private func drawTail() -> some View {
-
         return Rectangle()
             .frame(width: snake.width, height: snake.heigh)
             .position(snake.body[snake.body.count - 1].position)
             .foregroundColor(Color.pink).shadow(radius: 10)
     }
-    
 }
 
 struct SnakeModelView_Previews: PreviewProvider {

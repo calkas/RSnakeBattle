@@ -26,9 +26,7 @@ class SnakeModel : ObservableObject {
     }
     
     var headPosition: CGPoint {
-        get {
-            return body[0].position
-        }
+        return body[0].position
     }
     
     init(startSnakePosition: CGPoint) {
@@ -80,8 +78,7 @@ class SnakeModel : ObservableObject {
     
     private func isCollision() -> Bool {
         for part in 1..<length {
-            if headPosition == body[part].position
-            {
+            if headPosition == body[part].position {
                 return true
             }
         }
@@ -94,5 +91,3 @@ class SnakeModel : ObservableObject {
     }
     
 }
-
-

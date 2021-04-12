@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct FruitModelView: View {
+
     @ObservedObject var fruit: FruitModel
+    
     var body: some View {
         ZStack {
-            Image("apple_fruit").resizable().frame(width: fruit.width, height: fruit.heigh).position(fruit.coordinates).shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            Image("apple_fruit")
+                .resizable()
+                .frame(width: fruit.width, height: fruit.heigh)
+                .position(fruit.coordinates)
+                .shadow(radius: 10)
         }
     }
 }

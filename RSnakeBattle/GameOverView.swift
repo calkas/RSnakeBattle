@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GameOverView: View {
+    
     let score: Int
     let action: () -> ()
     

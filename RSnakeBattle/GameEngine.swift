@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct GameEngine: View {
-    
+
+    let board = BoardModel()    
     @ObservedObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
-    let board = BoardModel()
     @ObservedObject var fruit = FruitModel(workingCoords: CGPoint(x: CGFloat(SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment), y: CGFloat(SystemSettings.shared.maxScreenY - GameSettings.shared.yAdjustment)))
-    
     @ObservedObject var scoreBoard = ScoreBoardModel()
     
     @State private var snakeMove: SnakeMove = .up
     @State private var isGameStarted = false
+    @State private var isGameOver = false
     @State private var gameTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
-    @State var isGameOver = false
-    
+
     var body: some View {
         VStack {
             ZStack {
@@ -68,7 +67,6 @@ struct GameEngine: View {
             stopGameTimer()
         }
     }
-    
     
     private func determineSnakeDirection(clickScreenPoint: CGPoint)
     {

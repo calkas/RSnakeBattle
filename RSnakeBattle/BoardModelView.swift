@@ -10,9 +10,11 @@ import SwiftUI
 struct BoardModelView: View {
     
     let board: BoardModel
+    
     var body: some View {
         ZStack {
-            Image("board").resizable()
+            Image("board")
+                .resizable()
         }.frame(width: board.width, height: board.height)
     }
 }
