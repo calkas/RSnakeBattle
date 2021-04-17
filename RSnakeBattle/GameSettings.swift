@@ -14,6 +14,13 @@ enum SnakeMove{
     case right
 }
 
+enum GameLevel: Double {
+    case noob = 0.4
+    case normal = 0.3
+    case pro = 0.1
+    case hardcore = 0.05
+}
+
 class GameSettings {
     let xAdjustment: CGFloat = 20
     let yAdjustment: CGFloat = 60

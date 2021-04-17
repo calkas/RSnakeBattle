@@ -10,11 +10,11 @@ import SwiftUI
 struct GameEngine: View {
 
     let board = BoardModel()    
-    @ObservedObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
-    @ObservedObject var fruit = FruitModel(workingCoords: CGPoint(x: CGFloat(SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment), y: CGFloat(SystemSettings.shared.maxScreenY - GameSettings.shared.yAdjustment)))
-    @ObservedObject var scoreBoard = ScoreBoardModel()
+    @StateObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
+    @StateObject var fruit = FruitModel(workingCoords: CGPoint(x: CGFloat(SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment), y: CGFloat(SystemSettings.shared.maxScreenY - GameSettings.shared.yAdjustment)))
+    @StateObject var scoreBoard = ScoreBoardModel()
     
-    @State private var snakeMove: SnakeMove = .up
+    @State private var snakeMove = SnakeMove.up
     @State private var isGameStarted = false
     @State private var isGameOver = false
     @State private var gameTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
@@ -28,20 +28,17 @@ struct GameEngine: View {
                     }
                 }
                 else {
-                    
                     BoardModelView(board: board)
                     SnakeModelView(snake: snake)
                     FruitModelView(fruit: fruit)
-                    Text("Score: \(scoreBoard.score)")
-                        .font(.system(size: 20, weight: .black, design: .rounded))
-                        .foregroundColor(.pink).position(x:SystemSettings.shared.maxScreenX - 75, y: SystemSettings.shared.minScreenY + 5)
+                    ScoreBoardView()
                 }
             }
 
         }.gesture(DragGesture(minimumDistance: CGFloat(0)).onEnded({ g in
             if !isGameStarted {
                 scoreBoard.reset()
-                startGameTimer()
+                updateGameLevel()
                 isGameStarted = true
             }
             determineSnakeDirection(clickScreenPoint: g.location)
@@ -57,6 +54,7 @@ struct GameEngine: View {
                     scoreBoard.update()
                     snake.addBodyElement()
                     fruit.create()
+                    updateGameLevel()
                 }
                 else {
                     // Do Nothing
@@ -89,20 +87,47 @@ struct GameEngine: View {
             //Do Nothing
         }
     }
+    
+    private func ScoreBoardView() -> some View {
+        return Text("Score: \(scoreBoard.score)")
+            .font(.system(size: 20, weight: .black, design: .rounded))
+            .foregroundColor(.pink).position(x:SystemSettings.shared.maxScreenX - 70, y: SystemSettings.shared.minScreenY + 5)
+    }
 
     private func stopGameTimer() {
         gameTimer.upstream.connect().cancel()
     }
 
-    private func startGameTimer() {
-        gameTimer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+    private func startGameTimer(gameInterval: Double) {
+        gameTimer = Timer.publish(every: gameInterval, on: .main, in: .common).autoconnect()
+    }
+    
+    private func updateGameLevel() {
+        stopGameTimer()
+        if scoreBoard.score < 10 {
+            startGameTimer(gameInterval: GameLevel.noob.rawValue)
+        }
+        else if scoreBoard.score >= 10 && scoreBoard.score < 20 {
+            startGameTimer(gameInterval: GameLevel.normal.rawValue)
+            
+        }
+        else if scoreBoard.score >= 20 && scoreBoard.score < 50 {
+            startGameTimer(gameInterval: GameLevel.pro.rawValue)
+        }
+        
+        else if scoreBoard.score >= 50 {
+            startGameTimer(gameInterval: GameLevel.hardcore.rawValue)
+        }
+        else {
+            //Do Nothing
+        }
     }
     
     func resetGame() {
         snake.reset(startSnakePosition: GameSettings.shared.snakeStartingPoint)
-        isGameOver.toggle()
         stopGameTimer()
-        isGameStarted.toggle()
+        isGameOver = false
+        isGameStarted = false
     }
 }
 
