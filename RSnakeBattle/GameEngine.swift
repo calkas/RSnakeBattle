@@ -52,7 +52,7 @@ struct GameEngine: View {
                 
                 else if fruit.wasEaten(objPoint: snake.headPosition, objWidth: snake.width, objHeight: snake.heigh) {
                     scoreBoard.update()
-                    snake.addBodyElement()
+                    snake.addLastBodyElement(snakeMove)
                     fruit.create()
                     updateGameLevel()
                 }

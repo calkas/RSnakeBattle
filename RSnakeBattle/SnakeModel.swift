@@ -18,7 +18,6 @@ class SnakeModel : ObservableObject {
     @Published var isCollisionDetected = false
     let width: CGFloat = 20
     let heigh: CGFloat = 20
-    let snakeStep: CGFloat = 20
     
     var length : Int {
         return body.count
@@ -43,11 +42,7 @@ class SnakeModel : ObservableObject {
         body.append(BodyPart(position: snakeBodyPos))
     }
     
-    func addBodyElement() {
-        body.append(BodyPart(position: headPosition))
-    }
-
-    func addLastBodyElement(move: SnakeMove) {
+    func addLastBodyElement(_ move: SnakeMove) {
         if let currentLastBodyElement = body.last {
             var newLastBodyElement = currentLastBodyElement.position
             switch(move) {
@@ -66,16 +61,16 @@ class SnakeModel : ObservableObject {
         
         switch move {
         case .up:
-            body[0].position.y -= snakeStep
+            body[0].position.y -= heigh
             break
         case .down:
-            body[0].position.y += snakeStep
+            body[0].position.y += heigh
             break
         case .left:
-            body[0].position.x -= snakeStep
+            body[0].position.x -= width
             break
         case .right:
-            body[0].position.x += snakeStep
+            body[0].position.x += width
             break
         }
         

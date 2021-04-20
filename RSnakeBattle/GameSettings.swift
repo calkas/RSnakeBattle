@@ -15,8 +15,8 @@ enum SnakeMove{
 }
 
 enum GameLevel: Double {
-    case noob = 0.4
-    case normal = 0.3
+    case noob = 0.3
+    case normal = 0.2
     case pro = 0.1
     case hardcore = 0.05
 }
@@ -25,7 +25,7 @@ class GameSettings {
     let xAdjustment: CGFloat = 20
     let yAdjustment: CGFloat = 60
     
-    let snakeStartingPoint = CGPoint(x: 200, y: 200)
+    let snakeStartingPoint = CGPoint(x: SystemSettings.shared.maxScreenX / 2, y: SystemSettings.shared.maxScreenY / 2)
     
     static let shared = GameSettings()
     
