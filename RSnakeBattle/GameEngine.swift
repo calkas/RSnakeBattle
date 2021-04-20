@@ -104,22 +104,11 @@ struct GameEngine: View {
     
     private func updateGameLevel() {
         stopGameTimer()
-        if scoreBoard.score < 10 {
-            startGameTimer(gameInterval: GameLevel.noob.rawValue)
-        }
-        else if scoreBoard.score >= 10 && scoreBoard.score < 20 {
-            startGameTimer(gameInterval: GameLevel.normal.rawValue)
-            
-        }
-        else if scoreBoard.score >= 20 && scoreBoard.score < 50 {
-            startGameTimer(gameInterval: GameLevel.pro.rawValue)
-        }
-        
-        else if scoreBoard.score >= 50 {
-            startGameTimer(gameInterval: GameLevel.hardcore.rawValue)
-        }
-        else {
-            //Do Nothing
+        switch(scoreBoard.score) {
+            case 0...9: startGameTimer(gameInterval: GameLevel.noob.rawValue)
+            case 10...19: startGameTimer(gameInterval: GameLevel.normal.rawValue)
+            case 20...49: startGameTimer(gameInterval: GameLevel.pro.rawValue)
+            default: startGameTimer(gameInterval: GameLevel.hardcore.rawValue)
         }
     }
     

@@ -12,7 +12,6 @@ struct BodyPart {
     var position: CGPoint
 }
 
-
 class SnakeModel : ObservableObject {
     
     @Published var body = [BodyPart]()
@@ -46,6 +45,19 @@ class SnakeModel : ObservableObject {
     
     func addBodyElement() {
         body.append(BodyPart(position: headPosition))
+    }
+
+    func addLastBodyElement(move: SnakeMove) {
+        if let currentLastBodyElement = body.last {
+            var newLastBodyElement = currentLastBodyElement.position
+            switch(move) {
+                case .up: newLastBodyElement.y += heigh
+                case .down: newLastBodyElement.y -= heigh
+                case .right: newLastBodyElement.x += width
+                case .left: newLastBodyElement.x -= width
+            }
+            body.append(BodyPart(position: newLastBodyElement)) 
+        }
     }
     
     func move(move: SnakeMove) {
