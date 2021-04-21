@@ -19,12 +19,17 @@ class SnakeModel : ObservableObject {
     let width: CGFloat = 20
     let heigh: CGFloat = 20
     
-    var length : Int {
+    var length: Int {
         return body.count
     }
     
     var headPosition: CGPoint {
-        return body[0].position
+        get {
+            return body[0].position
+        }
+        set(newHeadPosition) {
+            body[0].position = newHeadPosition
+        }
     }
     
     init(startSnakePosition: CGPoint) {
@@ -45,7 +50,7 @@ class SnakeModel : ObservableObject {
     func addLastBodyElement(_ move: SnakeMove) {
         if let currentLastBodyElement = body.last {
             var newLastBodyElement = currentLastBodyElement.position
-            switch(move) {
+            switch move {
                 case .up: newLastBodyElement.y += heigh
                 case .down: newLastBodyElement.y -= heigh
                 case .right: newLastBodyElement.x += width
@@ -55,23 +60,15 @@ class SnakeModel : ObservableObject {
         }
     }
     
-    func move(move: SnakeMove) {
+    func move(_ move: SnakeMove) {
         
         var prevPos = headPosition
         
         switch move {
-        case .up:
-            body[0].position.y -= heigh
-            break
-        case .down:
-            body[0].position.y += heigh
-            break
-        case .left:
-            body[0].position.x -= width
-            break
-        case .right:
-            body[0].position.x += width
-            break
+            case .up: headPosition.y -= heigh
+            case .down: headPosition.y += heigh
+            case .left: headPosition.x -= width
+            case .right: headPosition.x += width
         }
         
         for part in 1..<length {

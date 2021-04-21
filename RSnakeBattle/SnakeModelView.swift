@@ -51,7 +51,7 @@ struct SnakeModelView: View {
 
 struct SnakeModelView_Previews: PreviewProvider {
     static var previews: some View {
-        let snake = SnakeModel(startSnakePosition: CGPoint(x: 100, y: 50))
-        SnakeModelView(snake: snake)
+        let snakeModel = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
+        SnakeModelView(snake: snakeModel)
     }
 }

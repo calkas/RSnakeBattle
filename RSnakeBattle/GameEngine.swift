@@ -45,7 +45,7 @@ struct GameEngine: View {
         })).onReceive(gameTimer, perform: { _ in
             
             if !isGameOver {
-                snake.move(move: snakeMove)
+                snake.move(snakeMove)
                 if board.isCollision(point: snake.headPosition) || snake.isCollisionDetected {
                     isGameOver = true
                 }
@@ -104,7 +104,7 @@ struct GameEngine: View {
     
     private func updateGameLevel() {
         stopGameTimer()
-        switch(scoreBoard.score) {
+        switch scoreBoard.score {
             case 0...9: startGameTimer(gameInterval: GameLevel.noob.rawValue)
             case 10...19: startGameTimer(gameInterval: GameLevel.normal.rawValue)
             case 20...49: startGameTimer(gameInterval: GameLevel.pro.rawValue)
