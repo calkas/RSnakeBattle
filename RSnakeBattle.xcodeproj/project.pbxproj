@@ -74,22 +74,16 @@
 		883D4F4325FE311D0036B535 /* RSnakeBattle */ = {
 			isa = PBXGroup;
 			children = (
+				88DC805D2634889F0085DFC6 /* View */,
+				88DC805C263488500085DFC6 /* ViewModel */,
+				88DC805B2634882A0085DFC6 /* Model */,
 				883D4F5425FE3BA00036B535 /* SystemSettings.swift */,
-				886C6CB02618D71600332640 /* BoardModelView.swift */,
 				882D59142610AF8100EB956C /* GameSettings.swift */,
 				883D4F4425FE311D0036B535 /* RSnakeBattleApp.swift */,
 				883D4F4625FE311D0036B535 /* ContentView.swift */,
-				88D4A404260756A6005138FA /* GameEngine.swift */,
-				88D4A407260763E0005138FA /* SnakeModel.swift */,
 				883D4F4825FE311E0036B535 /* Assets.xcassets */,
 				883D4F4D25FE311E0036B535 /* Info.plist */,
 				883D4F4A25FE311E0036B535 /* Preview Content */,
-				88C55786260DD5420091603B /* SnakeModelView.swift */,
-				88567E672613853E00B5860F /* BoardModel.swift */,
-				88A3D2D42619CF43007F0BB3 /* FruitModel.swift */,
-				88F6F22D261B28DB008A1C3D /* FruitModelView.swift */,
-				88CBDB0F262304E3007C402B /* GameOverView.swift */,
-				88CBDB1226230A9E007C402B /* ScoreBoardModel.swift */,
 			);
 			path = RSnakeBattle;
 			sourceTree = "<group>";
@@ -100,6 +94,36 @@
 				883D4F4B25FE311E0036B535 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		88DC805B2634882A0085DFC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88D4A407260763E0005138FA /* SnakeModel.swift */,
+				88567E672613853E00B5860F /* BoardModel.swift */,
+				88A3D2D42619CF43007F0BB3 /* FruitModel.swift */,
+				88CBDB1226230A9E007C402B /* ScoreBoardModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		88DC805C263488500085DFC6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				88F6F22D261B28DB008A1C3D /* FruitModelView.swift */,
+				886C6CB02618D71600332640 /* BoardModelView.swift */,
+				88C55786260DD5420091603B /* SnakeModelView.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		88DC805D2634889F0085DFC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88CBDB0F262304E3007C402B /* GameOverView.swift */,
+				88D4A404260756A6005138FA /* GameEngine.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
