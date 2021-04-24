@@ -13,7 +13,6 @@
 		883D4F4925FE311E0036B535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 883D4F4825FE311E0036B535 /* Assets.xcassets */; };
 		883D4F4C25FE311E0036B535 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 883D4F4B25FE311E0036B535 /* Preview Assets.xcassets */; };
 		883D4F5525FE3BA00036B535 /* SystemSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D4F5425FE3BA00036B535 /* SystemSettings.swift */; };
-		883D4F5825FE3BA40036B535 /* ObjectCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D4F5725FE3BA30036B535 /* ObjectCreating.swift */; };
 		88567E682613853E00B5860F /* BoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88567E672613853E00B5860F /* BoardModel.swift */; };
 		886C6CB12618D71600332640 /* BoardModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886C6CB02618D71600332640 /* BoardModelView.swift */; };
 		88A3D2D52619CF43007F0BB3 /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A3D2D42619CF43007F0BB3 /* FruitModel.swift */; };
@@ -34,7 +33,6 @@
 		883D4F4B25FE311E0036B535 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		883D4F4D25FE311E0036B535 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		883D4F5425FE3BA00036B535 /* SystemSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SystemSettings.swift; path = /Users/piotrrybka/Swift_Workspace/RSnakeBattle/RSnakeBattle/RSnakeBattle/SystemSettings.swift; sourceTree = "<absolute>"; };
-		883D4F5725FE3BA30036B535 /* ObjectCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ObjectCreating.swift; path = /Users/piotrrybka/Swift_Workspace/RSnakeBattle/RSnakeBattle/RSnakeBattle/ObjectCreating.swift; sourceTree = "<absolute>"; };
 		88567E672613853E00B5860F /* BoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModel.swift; sourceTree = "<group>"; };
 		886C6CB02618D71600332640 /* BoardModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModelView.swift; sourceTree = "<group>"; };
 		88A3D2D42619CF43007F0BB3 /* FruitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModel.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 			children = (
 				883D4F5425FE3BA00036B535 /* SystemSettings.swift */,
 				886C6CB02618D71600332640 /* BoardModelView.swift */,
-				883D4F5725FE3BA30036B535 /* ObjectCreating.swift */,
 				882D59142610AF8100EB956C /* GameSettings.swift */,
 				883D4F4425FE311D0036B535 /* RSnakeBattleApp.swift */,
 				883D4F4625FE311D0036B535 /* ContentView.swift */,
@@ -187,7 +184,6 @@
 				88F6F22E261B28DB008A1C3D /* FruitModelView.swift in Sources */,
 				88D4A408260763E0005138FA /* SnakeModel.swift in Sources */,
 				88CBDB10262304E3007C402B /* GameOverView.swift in Sources */,
-				883D4F5825FE3BA40036B535 /* ObjectCreating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
