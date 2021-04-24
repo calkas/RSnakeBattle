@@ -11,7 +11,7 @@ struct GameEngine: View {
 
     let board = BoardModel()    
     @StateObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
-    @StateObject var fruit = FruitModel(workingCoords: CGPoint(x: CGFloat(SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment), y: CGFloat(SystemSettings.shared.maxScreenY - GameSettings.shared.yAdjustment)))
+    @StateObject var fruit = FruitModel(workingCoords: CGPoint(x: SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment, y: SystemSettings.shared.maxScreenY - (GameSettings.shared.yAdjustment - GameSettings.shared.yOffset)))
     @StateObject var scoreBoard = ScoreBoardModel()
     
     @State private var snakeMove = SnakeMove.up
@@ -28,10 +28,11 @@ struct GameEngine: View {
                     }
                 }
                 else {
+                    ScoreBoardView()
                     BoardModelView(board: board)
                     SnakeModelView(snake: snake)
                     FruitModelView(fruit: fruit)
-                    ScoreBoardView()
+                    
                 }
             }
 
@@ -63,7 +64,7 @@ struct GameEngine: View {
             
         }).onAppear() {
             stopGameTimer()
-        }
+        }.ignoresSafeArea()
     }
     
     private func determineSnakeDirection(clickScreenPoint: CGPoint)
@@ -91,7 +92,7 @@ struct GameEngine: View {
     private func ScoreBoardView() -> some View {
         return Text("Score: \(scoreBoard.score)")
             .font(.system(size: 20, weight: .black, design: .rounded))
-            .foregroundColor(.pink).position(x:SystemSettings.shared.maxScreenX - 70, y: SystemSettings.shared.minScreenY + 5)
+            .foregroundColor(.pink).position(x:SystemSettings.shared.maxScreenX - 70, y: SystemSettings.shared.minScreenY + GameSettings.shared.yOffset)
     }
 
     private func stopGameTimer() {

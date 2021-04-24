@@ -23,14 +23,12 @@ enum GameLevel: Double {
 
 class GameSettings {
     let xAdjustment: CGFloat = 20
-    let yAdjustment: CGFloat = 60
+    let yAdjustment: CGFloat = 20
+    let yOffset: CGFloat = 30
     
     let snakeStartingPoint = CGPoint(x: SystemSettings.shared.maxScreenX / 2, y: SystemSettings.shared.maxScreenY / 2)
     
     static let shared = GameSettings()
-    
     private init() {
-        
     }
-    
 }

@@ -28,10 +28,11 @@ struct SnakeModelView: View {
     }
     
     private func drawHead() -> some View {
-        return Rectangle()
+        return Image("snakeHeadBigEyes")
+            .resizable()
             .frame(width: snake.width, height: snake.heigh)
             .position(snake.body[0].position)
-            .foregroundColor(Color.gray).shadow(radius: 10)
+            .shadow(radius: 10)
     }
     
     private func drawBody(index: Int) -> some View {

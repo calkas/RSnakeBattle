@@ -10,22 +10,17 @@ import SwiftUI
 
 class BoardModel {
     
-    let width = SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment
-    let height = SystemSettings.shared.maxScreenY - GameSettings.shared.yAdjustment
+    let beginWidth = SystemSettings.shared.minScreenX
+    let endWidth = SystemSettings.shared.maxScreenX
+    
+    let beginHeight = SystemSettings.shared.minScreenY + GameSettings.shared.yAdjustment + GameSettings.shared.yOffset
+    let endHeight = SystemSettings.shared.maxScreenY - GameSettings.shared.yAdjustment
     
     func isCollision(point: CGPoint) -> Bool {
         
-        if point.x < SystemSettings.shared.minScreenX + GameSettings.shared.xAdjustment || point.x > width {
-            return true
-        }
-        else if point.y < SystemSettings.shared.minScreenY + (GameSettings.shared.yAdjustment - GameSettings.shared.xAdjustment) || point.y > height + GameSettings.shared.xAdjustment {
-            return true
-        }
-        else {
-            //Do Nothing
-        }
+        let outOfBoardX = point.x <= beginWidth || point.x >= endWidth
+        let outOfBoardY = point.y <= beginHeight || point.y >= endHeight
         
-        return false
+        return outOfBoardX || outOfBoardY
     }
-    
 }

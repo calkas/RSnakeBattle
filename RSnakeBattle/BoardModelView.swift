@@ -15,7 +15,7 @@ struct BoardModelView: View {
         ZStack {
             Image("board")
                 .resizable()
-        }.frame(width: board.width, height: board.height)
+        }.frame(width: board.endWidth - board.beginWidth, height: board.endHeight).offset(y: GameSettings.shared.yOffset)
     }
 }
 
