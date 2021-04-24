@@ -19,7 +19,7 @@
 		88C55787260DD5420091603B /* SnakeModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C55786260DD5420091603B /* SnakeModelView.swift */; };
 		88CBDB10262304E3007C402B /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CBDB0F262304E3007C402B /* GameOverView.swift */; };
 		88CBDB1326230A9E007C402B /* ScoreBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CBDB1226230A9E007C402B /* ScoreBoardModel.swift */; };
-		88D4A405260756A6005138FA /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D4A404260756A6005138FA /* GameEngine.swift */; };
+		88D4A405260756A6005138FA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D4A404260756A6005138FA /* Game.swift */; };
 		88D4A408260763E0005138FA /* SnakeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D4A407260763E0005138FA /* SnakeModel.swift */; };
 		88F6F22E261B28DB008A1C3D /* FruitModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6F22D261B28DB008A1C3D /* FruitModelView.swift */; };
 /* End PBXBuildFile section */
@@ -39,7 +39,7 @@
 		88C55786260DD5420091603B /* SnakeModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeModelView.swift; sourceTree = "<group>"; };
 		88CBDB0F262304E3007C402B /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		88CBDB1226230A9E007C402B /* ScoreBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardModel.swift; sourceTree = "<group>"; };
-		88D4A404260756A6005138FA /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
+		88D4A404260756A6005138FA /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		88D4A407260763E0005138FA /* SnakeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeModel.swift; sourceTree = "<group>"; };
 		88F6F22D261B28DB008A1C3D /* FruitModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				88CBDB0F262304E3007C402B /* GameOverView.swift */,
-				88D4A404260756A6005138FA /* GameEngine.swift */,
+				88D4A404260756A6005138FA /* Game.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				882D59152610AF8100EB956C /* GameSettings.swift in Sources */,
-				88D4A405260756A6005138FA /* GameEngine.swift in Sources */,
+				88D4A405260756A6005138FA /* Game.swift in Sources */,
 				883D4F4725FE311D0036B535 /* ContentView.swift in Sources */,
 				883D4F4525FE311D0036B535 /* RSnakeBattleApp.swift in Sources */,
 				883D4F5525FE3BA00036B535 /* SystemSettings.swift in Sources */,

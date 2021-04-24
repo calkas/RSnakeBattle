@@ -1,5 +1,5 @@
 //
-//  GameEngine.swift
+//  Game.swift
 //  RSnakeBattle
 //
 //  Created by Piotr Rybka on 21/03/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GameEngine: View {
+struct Game: View {
 
     let board = BoardModel()    
     @StateObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
@@ -121,8 +121,8 @@ struct GameEngine: View {
     }
 }
 
-struct GameEngine_Previews: PreviewProvider {
+struct Game_Previews: PreviewProvider {
     static var previews: some View {
-        GameEngine()
+        Game()
     }
 }
