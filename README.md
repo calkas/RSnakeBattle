@@ -7,4 +7,4 @@ The game based on the historical Snake game, where the player maneuvers a Snake 
 ![image info](./Misc/snakeAppView.gif)
 
 ## ⚠️ Status
-Still in the development phase... 🚧
+The first version of working application.
