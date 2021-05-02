@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Game: View {
 
-    let board = BoardModel()    
+    @StateObject var boardViewModel = BoardViewModel()
     @StateObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
     @StateObject var fruit = FruitModel(workingCoords: CGPoint(x: SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment, y: SystemSettings.shared.maxScreenY - (GameSettings.shared.yAdjustment - GameSettings.shared.yOffset)))
     @StateObject var scoreBoardViewModel = ScoreBoardViewModel()
@@ -29,7 +29,7 @@ struct Game: View {
                 }
                 else {
                     ScoreBoardView()
-                    BoardModelView(board: board)
+                    BoardView(boardViewModel: boardViewModel)
                     SnakeModelView(snake: snake)
                     FruitModelView(fruit: fruit)
                     
@@ -47,7 +47,7 @@ struct Game: View {
             
             if !isGameOver {
                 snake.move(snakeMove)
-                if board.isCollision(point: snake.headPosition) || snake.isCollisionDetected {
+                if boardViewModel.isCollision(point: snake.headPosition) || snake.isCollisionDetected {
                     isGameOver = true
                 }
                 
