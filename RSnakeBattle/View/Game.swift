@@ -10,8 +10,8 @@ import SwiftUI
 struct Game: View {
 
     @StateObject var boardViewModel = BoardViewModel()
-    @StateObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
-    @StateObject var fruit = FruitViewModel(workingCoords: CGPoint(x: SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment, y: SystemSettings.shared.maxScreenY - (GameSettings.shared.yAdjustment - GameSettings.shared.yOffset)))
+    @StateObject var snakeViewModel = SnakeViewModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
+    @StateObject var fruitViewModel = FruitViewModel(workingCoords: CGPoint(x: SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment, y: SystemSettings.shared.maxScreenY - (GameSettings.shared.yAdjustment - GameSettings.shared.yOffset)))
     @StateObject var scoreBoardViewModel = ScoreBoardViewModel()
     
     @State private var snakeMove = SnakeMove.up
@@ -30,8 +30,8 @@ struct Game: View {
                 else {
                     ScoreBoardView()
                     BoardView(boardViewModel: boardViewModel)
-                    SnakeModelView(snake: snake)
-                    FruitView(fruitViewModel: fruit)
+                    SnakeView(snake: snakeViewModel)
+                    FruitView(fruitViewModel: fruitViewModel)
                     
                 }
             }
@@ -46,15 +46,15 @@ struct Game: View {
         })).onReceive(gameTimer, perform: { _ in
             
             if !isGameOver {
-                snake.move(snakeMove)
-                if boardViewModel.isCollision(point: snake.headPosition) || snake.isCollisionDetected {
+                snakeViewModel.move(snakeMove)
+                if boardViewModel.isCollision(point: snakeViewModel.snakeModel.headPosition) || snakeViewModel.isCollisionDetected {
                     isGameOver = true
                 }
                 
-                else if fruit.wasEaten(objPoint: snake.headPosition, objWidth: snake.width, objHeight: snake.heigh) {
+                else if fruitViewModel.wasEaten(objPoint: snakeViewModel.snakeModel.headPosition, objWidth: snakeViewModel.snakeModel.width, objHeight: snakeViewModel.snakeModel.heigh) {
                     scoreBoardViewModel.update()
-                    snake.addLastBodyElement(snakeMove)
-                    fruit.create()
+                    snakeViewModel.addLastBodyElement(snakeMove)
+                    fruitViewModel.create()
                     updateGameLevel()
                 }
                 else {
@@ -69,19 +69,19 @@ struct Game: View {
     
     private func determineSnakeDirection(clickScreenPoint: CGPoint)
     {
-        let dXFromObjToClick = abs(clickScreenPoint.x - snake.headPosition.x)
-        let dYFromObjToClick = abs(clickScreenPoint.y - snake.headPosition.y)
+        let dXFromObjToClick = abs(clickScreenPoint.x - snakeViewModel.snakeModel.headPosition.x)
+        let dYFromObjToClick = abs(clickScreenPoint.y - snakeViewModel.snakeModel.headPosition.y)
         
-        if clickScreenPoint.x > snake.headPosition.x && dXFromObjToClick > dYFromObjToClick {
+        if clickScreenPoint.x > snakeViewModel.snakeModel.headPosition.x && dXFromObjToClick > dYFromObjToClick {
             snakeMove = .right
         }
-        else if clickScreenPoint.x < snake.headPosition.x && dXFromObjToClick > dYFromObjToClick {
+        else if clickScreenPoint.x < snakeViewModel.snakeModel.headPosition.x && dXFromObjToClick > dYFromObjToClick {
             snakeMove = .left
         }
-        else if clickScreenPoint.y > snake.headPosition.y && dYFromObjToClick > dXFromObjToClick {
+        else if clickScreenPoint.y > snakeViewModel.snakeModel.headPosition.y && dYFromObjToClick > dXFromObjToClick {
             snakeMove = .down
         }
-        else if clickScreenPoint.y < snake.headPosition.y && dYFromObjToClick > dXFromObjToClick {
+        else if clickScreenPoint.y < snakeViewModel.snakeModel.headPosition.y && dYFromObjToClick > dXFromObjToClick {
             snakeMove = .up
         }
         else {
@@ -114,7 +114,7 @@ struct Game: View {
     }
     
     func resetGame() {
-        snake.reset(startSnakePosition: GameSettings.shared.snakeStartingPoint)
+        snakeViewModel.reset(startSnakePosition: GameSettings.shared.snakeStartingPoint)
         stopGameTimer()
         isGameOver = false
         isGameStarted = false

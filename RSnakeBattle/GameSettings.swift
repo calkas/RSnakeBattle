@@ -29,7 +29,6 @@ class GameSettings {
     let snakeStartingPoint = CGPoint(x: SystemSettings.shared.maxScreenX / 2, y: SystemSettings.shared.maxScreenY / 2)
     
     let fruitStartingPoint = CGPoint(x:100, y:100)
-    
     let objectWidth: CGFloat = 20
     let objectHeigh: CGFloat = 20
     

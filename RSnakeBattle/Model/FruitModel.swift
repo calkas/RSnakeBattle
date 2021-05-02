@@ -9,7 +9,6 @@ import Foundation
 
 
 struct FruitModel {
-
     let width = GameSettings.shared.objectWidth
     let heigh = GameSettings.shared.objectHeigh
     var coordinates = GameSettings.shared.fruitStartingPoint

@@ -9,5 +9,4 @@ import Foundation
 
 struct ScoreBoardModel {
     var score: Int = 0
-
 }
