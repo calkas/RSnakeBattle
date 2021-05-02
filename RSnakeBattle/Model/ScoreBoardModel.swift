@@ -6,18 +6,8 @@
 //
 
 import Foundation
-import SwiftUI
 
+struct ScoreBoardModel {
+    var score: Int = 0
 
-class ScoreBoardModel: ObservableObject {
-    
-    @Published var score: Int = 0
-    
-    func update() {
-        score += 1
-    }
-    
-    func reset() {
-        score = 0
-    }
 }

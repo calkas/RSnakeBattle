@@ -12,7 +12,7 @@ struct Game: View {
     let board = BoardModel()    
     @StateObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
     @StateObject var fruit = FruitModel(workingCoords: CGPoint(x: SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment, y: SystemSettings.shared.maxScreenY - (GameSettings.shared.yAdjustment - GameSettings.shared.yOffset)))
-    @StateObject var scoreBoard = ScoreBoardModel()
+    @StateObject var scoreBoardViewModel = ScoreBoardViewModel()
     
     @State private var snakeMove = SnakeMove.up
     @State private var isGameStarted = false
@@ -24,7 +24,7 @@ struct Game: View {
             ZStack {
                 if isGameOver {
                     VStack {
-                        GameOverView(score: scoreBoard.score, action: { self.resetGame() })
+                        GameOverView(score: scoreBoardViewModel.getScore(), action: { self.resetGame() })
                     }
                 }
                 else {
@@ -38,7 +38,7 @@ struct Game: View {
 
         }.gesture(DragGesture(minimumDistance: CGFloat(0)).onEnded({ g in
             if !isGameStarted {
-                scoreBoard.reset()
+                scoreBoardViewModel.reset()
                 updateGameLevel()
                 isGameStarted = true
             }
@@ -52,7 +52,7 @@ struct Game: View {
                 }
                 
                 else if fruit.wasEaten(objPoint: snake.headPosition, objWidth: snake.width, objHeight: snake.heigh) {
-                    scoreBoard.update()
+                    scoreBoardViewModel.update()
                     snake.addLastBodyElement(snakeMove)
                     fruit.create()
                     updateGameLevel()
@@ -90,7 +90,7 @@ struct Game: View {
     }
     
     private func ScoreBoardView() -> some View {
-        return Text("Score: \(scoreBoard.score)")
+        return Text("Score: \(scoreBoardViewModel.getScore())")
             .font(.system(size: 20, weight: .black, design: .rounded))
             .foregroundColor(.pink).position(x:SystemSettings.shared.maxScreenX - 70, y: SystemSettings.shared.minScreenY + GameSettings.shared.yOffset)
     }
@@ -105,7 +105,7 @@ struct Game: View {
     
     private func updateGameLevel() {
         stopGameTimer()
-        switch scoreBoard.score {
+        switch scoreBoardViewModel.getScore() {
             case 0...9: startGameTimer(gameInterval: GameLevel.noob.rawValue)
             case 10...19: startGameTimer(gameInterval: GameLevel.normal.rawValue)
             case 20...49: startGameTimer(gameInterval: GameLevel.pro.rawValue)
