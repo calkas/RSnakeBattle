@@ -17,15 +17,4 @@ class BoardViewModel: ObservableObject {
         
         return outOfBoardX || outOfBoardY
     }
-    
-    
-    
-//    func isCollision(point: CGPoint) -> Bool {
-//
-//        let outOfBoardX = point.x <= beginWidth || point.x >= endWidth
-//        let outOfBoardY = point.y <= beginHeight || point.y >= endHeight
-//
-//        return outOfBoardX || outOfBoardY
-//    }
-    
 }

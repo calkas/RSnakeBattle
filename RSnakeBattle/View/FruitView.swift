@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct FruitModelView: View {
+struct FruitView: View {
 
-    @ObservedObject var fruit: FruitModel
+    @ObservedObject var fruitViewModel: FruitViewModel
     
     var body: some View {
         ZStack {
             Image("apple_fruit")
                 .resizable()
-                .frame(width: fruit.width, height: fruit.heigh)
-                .position(fruit.coordinates)
+                .frame(width: fruitViewModel.fruitModel.width, height: fruitViewModel.fruitModel.heigh)
+                .position(fruitViewModel.fruitModel.coordinates)
                 .shadow(radius: 10)
         }
     }
@@ -24,7 +24,7 @@ struct FruitModelView: View {
 
 struct FruitModelView_Previews: PreviewProvider {
     static var previews: some View {
-        let fruit = FruitModel(workingCoords: CGPoint(x: 100, y: 100))
-        FruitModelView(fruit: fruit)
+        let fruit = FruitViewModel(workingCoords: CGPoint(x: 100, y: 100))
+        FruitView(fruitViewModel: fruit)
     }
 }

@@ -17,13 +17,14 @@
 		886C6CB12618D71600332640 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886C6CB02618D71600332640 /* BoardView.swift */; };
 		889C0FA2263F02280028580D /* ScoreBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C0FA1263F02280028580D /* ScoreBoardViewModel.swift */; };
 		889C0FA6263F07BC0028580D /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C0FA5263F07BC0028580D /* BoardViewModel.swift */; };
+		889C0FAC263F0C660028580D /* FruitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C0FAB263F0C660028580D /* FruitViewModel.swift */; };
 		88A3D2D52619CF43007F0BB3 /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A3D2D42619CF43007F0BB3 /* FruitModel.swift */; };
 		88C55787260DD5420091603B /* SnakeModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C55786260DD5420091603B /* SnakeModelView.swift */; };
 		88CBDB10262304E3007C402B /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CBDB0F262304E3007C402B /* GameOverView.swift */; };
 		88CBDB1326230A9E007C402B /* ScoreBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CBDB1226230A9E007C402B /* ScoreBoardModel.swift */; };
 		88D4A405260756A6005138FA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D4A404260756A6005138FA /* Game.swift */; };
 		88D4A408260763E0005138FA /* SnakeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D4A407260763E0005138FA /* SnakeModel.swift */; };
-		88F6F22E261B28DB008A1C3D /* FruitModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6F22D261B28DB008A1C3D /* FruitModelView.swift */; };
+		88F6F22E261B28DB008A1C3D /* FruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6F22D261B28DB008A1C3D /* FruitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,13 +40,14 @@
 		886C6CB02618D71600332640 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		889C0FA1263F02280028580D /* ScoreBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardViewModel.swift; sourceTree = "<group>"; };
 		889C0FA5263F07BC0028580D /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
+		889C0FAB263F0C660028580D /* FruitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitViewModel.swift; sourceTree = "<group>"; };
 		88A3D2D42619CF43007F0BB3 /* FruitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModel.swift; sourceTree = "<group>"; };
 		88C55786260DD5420091603B /* SnakeModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeModelView.swift; sourceTree = "<group>"; };
 		88CBDB0F262304E3007C402B /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		88CBDB1226230A9E007C402B /* ScoreBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardModel.swift; sourceTree = "<group>"; };
 		88D4A404260756A6005138FA /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		88D4A407260763E0005138FA /* SnakeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeModel.swift; sourceTree = "<group>"; };
-		88F6F22D261B28DB008A1C3D /* FruitModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModelView.swift; sourceTree = "<group>"; };
+		88F6F22D261B28DB008A1C3D /* FruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +116,10 @@
 		88DC805C263488500085DFC6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				88F6F22D261B28DB008A1C3D /* FruitModelView.swift */,
 				88C55786260DD5420091603B /* SnakeModelView.swift */,
 				889C0FA1263F02280028580D /* ScoreBoardViewModel.swift */,
 				889C0FA5263F07BC0028580D /* BoardViewModel.swift */,
+				889C0FAB263F0C660028580D /* FruitViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -127,6 +129,7 @@
 			children = (
 				88CBDB0F262304E3007C402B /* GameOverView.swift */,
 				886C6CB02618D71600332640 /* BoardView.swift */,
+				88F6F22D261B28DB008A1C3D /* FruitView.swift */,
 				88D4A404260756A6005138FA /* Game.swift */,
 			);
 			path = View;
@@ -206,13 +209,14 @@
 				889C0FA2263F02280028580D /* ScoreBoardViewModel.swift in Sources */,
 				883D4F4725FE311D0036B535 /* ContentView.swift in Sources */,
 				883D4F4525FE311D0036B535 /* RSnakeBattleApp.swift in Sources */,
+				889C0FAC263F0C660028580D /* FruitViewModel.swift in Sources */,
 				883D4F5525FE3BA00036B535 /* SystemSettings.swift in Sources */,
 				88CBDB1326230A9E007C402B /* ScoreBoardModel.swift in Sources */,
 				88A3D2D52619CF43007F0BB3 /* FruitModel.swift in Sources */,
 				886C6CB12618D71600332640 /* BoardView.swift in Sources */,
 				88C55787260DD5420091603B /* SnakeModelView.swift in Sources */,
 				88567E682613853E00B5860F /* BoardModel.swift in Sources */,
-				88F6F22E261B28DB008A1C3D /* FruitModelView.swift in Sources */,
+				88F6F22E261B28DB008A1C3D /* FruitView.swift in Sources */,
 				88D4A408260763E0005138FA /* SnakeModel.swift in Sources */,
 				88CBDB10262304E3007C402B /* GameOverView.swift in Sources */,
 				889C0FA6263F07BC0028580D /* BoardViewModel.swift in Sources */,

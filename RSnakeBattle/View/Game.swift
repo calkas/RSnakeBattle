@@ -11,7 +11,7 @@ struct Game: View {
 
     @StateObject var boardViewModel = BoardViewModel()
     @StateObject var snake = SnakeModel(startSnakePosition: GameSettings.shared.snakeStartingPoint)
-    @StateObject var fruit = FruitModel(workingCoords: CGPoint(x: SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment, y: SystemSettings.shared.maxScreenY - (GameSettings.shared.yAdjustment - GameSettings.shared.yOffset)))
+    @StateObject var fruit = FruitViewModel(workingCoords: CGPoint(x: SystemSettings.shared.maxScreenX - GameSettings.shared.xAdjustment, y: SystemSettings.shared.maxScreenY - (GameSettings.shared.yAdjustment - GameSettings.shared.yOffset)))
     @StateObject var scoreBoardViewModel = ScoreBoardViewModel()
     
     @State private var snakeMove = SnakeMove.up
@@ -31,7 +31,7 @@ struct Game: View {
                     ScoreBoardView()
                     BoardView(boardViewModel: boardViewModel)
                     SnakeModelView(snake: snake)
-                    FruitModelView(fruit: fruit)
+                    FruitView(fruitViewModel: fruit)
                     
                 }
             }
