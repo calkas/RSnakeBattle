@@ -20,6 +20,7 @@
 		889C0FAC263F0C660028580D /* FruitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C0FAB263F0C660028580D /* FruitViewModel.swift */; };
 		889C0FB2263F12890028580D /* SnakeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C0FB1263F12890028580D /* SnakeViewModel.swift */; };
 		88A3D2D52619CF43007F0BB3 /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A3D2D42619CF43007F0BB3 /* FruitModel.swift */; };
+		88BB947E26AD629C00EB9B3D /* SnakeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB947D26AD629C00EB9B3D /* SnakeViewModelTest.swift */; };
 		88C55787260DD5420091603B /* SnakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C55786260DD5420091603B /* SnakeView.swift */; };
 		88CBDB10262304E3007C402B /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CBDB0F262304E3007C402B /* GameOverView.swift */; };
 		88CBDB1326230A9E007C402B /* ScoreBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CBDB1226230A9E007C402B /* ScoreBoardModel.swift */; };
@@ -27,6 +28,16 @@
 		88D4A408260763E0005138FA /* SnakeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D4A407260763E0005138FA /* SnakeModel.swift */; };
 		88F6F22E261B28DB008A1C3D /* FruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6F22D261B28DB008A1C3D /* FruitView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88BB948026AD629C00EB9B3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 883D4F3925FE311D0036B535 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 883D4F4025FE311D0036B535;
+			remoteInfo = RSnakeBattle;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		882D59142610AF8100EB956C /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
@@ -44,6 +55,9 @@
 		889C0FAB263F0C660028580D /* FruitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitViewModel.swift; sourceTree = "<group>"; };
 		889C0FB1263F12890028580D /* SnakeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeViewModel.swift; sourceTree = "<group>"; };
 		88A3D2D42619CF43007F0BB3 /* FruitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModel.swift; sourceTree = "<group>"; };
+		88BB947B26AD629C00EB9B3D /* RSnakeTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSnakeTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88BB947D26AD629C00EB9B3D /* SnakeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeViewModelTest.swift; sourceTree = "<group>"; };
+		88BB947F26AD629C00EB9B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88C55786260DD5420091603B /* SnakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeView.swift; sourceTree = "<group>"; };
 		88CBDB0F262304E3007C402B /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		88CBDB1226230A9E007C402B /* ScoreBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardModel.swift; sourceTree = "<group>"; };
@@ -60,6 +74,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88BB947826AD629C00EB9B3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				883D4F4325FE311D0036B535 /* RSnakeBattle */,
+				88BB947C26AD629C00EB9B3D /* RSnakeTest */,
 				883D4F4225FE311D0036B535 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				883D4F4125FE311D0036B535 /* RSnakeBattle.app */,
+				88BB947B26AD629C00EB9B3D /* RSnakeTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +125,15 @@
 				883D4F4B25FE311E0036B535 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		88BB947C26AD629C00EB9B3D /* RSnakeTest */ = {
+			isa = PBXGroup;
+			children = (
+				88BB947D26AD629C00EB9B3D /* SnakeViewModelTest.swift */,
+				88BB947F26AD629C00EB9B3D /* Info.plist */,
+			);
+			path = RSnakeTest;
 			sourceTree = "<group>";
 		};
 		88DC805B2634882A0085DFC6 /* Model */ = {
@@ -158,17 +190,39 @@
 			productReference = 883D4F4125FE311D0036B535 /* RSnakeBattle.app */;
 			productType = "com.apple.product-type.application";
 		};
+		88BB947A26AD629C00EB9B3D /* RSnakeTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88BB948426AD629C00EB9B3D /* Build configuration list for PBXNativeTarget "RSnakeTest" */;
+			buildPhases = (
+				88BB947726AD629C00EB9B3D /* Sources */,
+				88BB947826AD629C00EB9B3D /* Frameworks */,
+				88BB947926AD629C00EB9B3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88BB948126AD629C00EB9B3D /* PBXTargetDependency */,
+			);
+			name = RSnakeTest;
+			productName = RSnakeTest;
+			productReference = 88BB947B26AD629C00EB9B3D /* RSnakeTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		883D4F3925FE311D0036B535 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					883D4F4025FE311D0036B535 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					88BB947A26AD629C00EB9B3D = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 883D4F4025FE311D0036B535;
 					};
 				};
 			};
@@ -186,6 +240,7 @@
 			projectRoot = "";
 			targets = (
 				883D4F4025FE311D0036B535 /* RSnakeBattle */,
+				88BB947A26AD629C00EB9B3D /* RSnakeTest */,
 			);
 		};
 /* End PBXProject section */
@@ -197,6 +252,13 @@
 			files = (
 				883D4F4C25FE311E0036B535 /* Preview Assets.xcassets in Resources */,
 				883D4F4925FE311E0036B535 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88BB947926AD629C00EB9B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +289,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88BB947726AD629C00EB9B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88BB947E26AD629C00EB9B3D /* SnakeViewModelTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88BB948126AD629C00EB9B3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 883D4F4025FE311D0036B535 /* RSnakeBattle */;
+			targetProxy = 88BB948026AD629C00EB9B3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		883D4F4E25FE311E0036B535 /* Debug */ = {
@@ -390,6 +468,48 @@
 			};
 			name = Release;
 		};
+		88BB948226AD629C00EB9B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5635J3PT63;
+				INFOPLIST_FILE = RSnakeTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Calkas.RSnakeTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RSnakeBattle.app/RSnakeBattle";
+			};
+			name = Debug;
+		};
+		88BB948326AD629C00EB9B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5635J3PT63;
+				INFOPLIST_FILE = RSnakeTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Calkas.RSnakeTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RSnakeBattle.app/RSnakeBattle";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -407,6 +527,15 @@
 			buildConfigurations = (
 				883D4F5125FE311E0036B535 /* Debug */,
 				883D4F5225FE311E0036B535 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88BB948426AD629C00EB9B3D /* Build configuration list for PBXNativeTarget "RSnakeTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88BB948226AD629C00EB9B3D /* Debug */,
+				88BB948326AD629C00EB9B3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
